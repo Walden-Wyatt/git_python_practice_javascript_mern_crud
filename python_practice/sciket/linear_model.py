@@ -1,0 +1,10 @@
+
+
+class LinearRegression:
+
+    var = "Value"
+
+
+
+
+

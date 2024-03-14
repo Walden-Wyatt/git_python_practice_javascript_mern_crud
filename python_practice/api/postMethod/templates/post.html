@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1> Hello, POST method </h1>
+
+    <!-- <form action="GET"> -->
+
+    <p> Name : </p>
+    <input type="text">
+    <button type="submit"> Click </button>
+
+    <!-- </form> -->
+
+
+    <!-- 
+
+        # Imformations [ <Form> Tag ] :-
+        1. All the HTTP Methods such as [ GET, POST, DELETE, PATCH ] will only work in form tags, we are not allowed to use this methods inside other tags 
+        2. If you want to get some datas from the Frontend to Backend, make sure to wrap [ Form ] tags and Appropriate tagas inside the [ Form ] tag from which we are going to get the datas, ex : [ input, etc ].
+        3. To send the data from Backend to Frontend, you don't need to append inside any tags, We can directly access it from appropriate request methods such as [ Get ], which Flask or other libraries will provide.  
+        # only [ <Form> tag ] can be used to perform Http requests.
+     -->
+
+
+    <form action="login">
+        <!-- if you do not specify any [method] attribute here which means by default any actions which is happens inside the [form] tag will be treated as  [ GET ] method, the values will be appended inside the URL  
+             
+            if you the [ form ] element to be treated as [ POST, DELETE, PATCH, etc ] make sure to use [ method ] attribute and pass appropriate request values such as [ POST, DELETE, PATCH ].
+
+        -->
+
+        <p>Name: </p>
+        <input type="text" name="userValue">
+        <button type="submit"> Click </button>
+        <!-- When we click [button] element which is present inside the [form] tag, our page get redirected to [ /post?] -->
+
+    </form>
+
+
+    <!-- Here we have button outside the [ form ] tag, when we try to click this button nothing is happening becuase, HTTP request methods [ GET, POST, DELETE, etc ] will only work for those elements which are present inside [ form ] Tag -->
+    <button type="submit"> Outside Click </button>
+
+
+
+</body>
+
+</html>
