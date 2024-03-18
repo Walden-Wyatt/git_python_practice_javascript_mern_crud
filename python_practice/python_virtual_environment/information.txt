@@ -1,0 +1,190 @@
+
+Command to Install Virtual Environment 
+[ python -m venv virtual_environment_name ]
+ [ python ] = this Command to which we have to use in terminal to perform some python programming things 
+ [ -m ] = this is an option which has to be used to install virtual Environment
+ [ venv ] = "venv" means we are telling the python to install a Folder which has all "venv" functionality ---> keep this folder Isolated(seperated) --> The Libraries/packages which we install inside this folder must be withint the folder (can be used within this Folder ) it can't be outside this Folder --> Do not make any changes inside the Global Environment of Python ( what ever packages/Libraries installed till now must be same there should not be any changes made inside Global Environment Packages. )
+ [ virtual_environment_name ] - Here we have to specify the Name of the Folder which will have all the Features/functionalites etc, This can have any Custom Names there is not restrictions for this name, but the convection is using [env]
+
+
+
+--------------------------------------
+
+
+
+// How to Activate [ venv ]
+[  virtual_environment_name/Scripts/activate ]
+ This command will activate the Virtual Environment which we have created
+ Command Breakdown 
+ [  virtual_environment_name/ ]  -- Here we have to specify the Name of the Folder which has "venv" installed, in this case "venv" has been installed inside (virtual_environment_name) folder.
+ [ Scripts/ ]  -- "Scripts" is fixed which will tell python we are going to activate "venv", here note that "Scripts" has been capitalised
+ [ activate ] -- "activate" here we litraly told python to activate "venv" , here note that this word called "activate" must be in lowercase
+
+ How to get to Know weather the Virtual Environment has been activated or not ?
+  when you run above command if you get below Output which means you have activated "venv" 
+  [ (virtual_environment_name) PS C:\Users\user\Desktop\python_virtual_environment> ]
+   
+    Here if you see before [ C: ] drive path we have a Parenthsis with the Virtual Environment name which we have provided while creating, in this case the Virtual Environment name is [ virtual_environment_name ]
+     when you get [ (virtual_environment_name) ] as a Prefix for "C DRIVE" Path [ C:\Users\user\Desktop\python_virtual_environment> ] --> which means we are into Virtual Environment
+
+
+--------------------------------------
+
+
+How to Deactivate ?
+
+From Virtual Environment Path use [ deactivate ] command, your "venv" will get deactivated, 
+Once if you have deactivated --? inside your terminal the Path will start from "C: Drive", which will look like below
+[ PS C:\Users\user\Desktop\python_virtual_environment> ]
+ If you cannot able to find [ virtual_environment_name ] as a prefix of [ C: Drive ], which means we have deactivated from Virtual Environment
+
+
+
+
+
+--------------------------------------
+
+
+How to View the Packages which are currently inside Virtual Environment or Packages which has been Installed inside Virtual Environment ?
+
+Command :- [ pip list ]
+ --> This command will show / display the list of packages which are present or installed inside the Virtual Environment
+
+
+  Example Code :-
+
+
+(virtual_environment_name) PS C:\Users\user\Desktop\python_virtual_environment> pip list
+Package Version
+------- -------
+pip     23.2.1 
+
+[notice] A new release of pip is available: 23.2.1 -> 24.0      
+[notice] To update, run: python.exe -m pip install --upgrade pip
+(virtual_environment_name) PS C:\Users\user\Desktop\python_virtual_environment> 
+
+
+
+------------------------------------
+
+
+
+
+how to install some packages inside virtual Environment ?
+
+command :- [ pip install package_names ]
+
+  here we tried to install "mongoose" :-
+  (virtual_environment_name) PS C:\Users\user\Desktop\python_virtual_environment> pip install mongoose requests
+    Collecting mongoose
+
+
+
+
+  here when we try to check the package list inside the virtual Environment using [ pip list ], we are getting below output :- 
+
+  (virtual_environment_name) PS C:\Users\user\Desktop\python_virtual_environment> pip list
+Package            Version
+------------------ --------
+certifi            2024.2.2
+charset-normalizer 3.3.2   
+idna               3.6     
+mongoose           0.0.1   
+pip                23.2.1  
+requests           2.31.0  
+urllib3            2.2.1   
+
+[notice] A new release of pip is available: 23.2.1 -> 24.0      
+[notice] To update, run: python.exe -m pip install --upgrade pip
+(virtual_environment_name) PS C:\Users\user\Desktop\python_virtual_environment> 
+
+
+
+
+
+------------------------------------
+
+
+
+
+we can even use [ pip list ] from inside the Global Environment ?
+
+
+ Here we ran [ pip list ] in the Global Environment , This is provide a List of packages which has been installed in the Global Environment 
+   The list of Packages which is present inside this list will not be same (that is., same package_Names, package_versions, etc ) when compared to the packages which we have installed in the Virtual Environment.
+ 
+ Command :- PS C:\Users\user\Desktop\python_virtual_environment> pip list
+
+
+
+
+
+------------------------------------
+
+
+How to save the Dependencies ?
+
+Command :- [ pip freeze > requirements.txt ]
+ This command will get all the Packages which we have installed inside [ virtual_environment_name ], which incluedes "package name" and "package version" and --> Creates a file called ["requirements.txt"]  files  --->  Stores those Details inside ["requirements.txt"]  files
+  This command will create a file with the name [ requirements.txt ] as a sibling for [ virtual_environment_name ] folder
+
+ Breakdown :-
+ [ pip ] = command name to install package 
+ [ freeze ] == this will get the packages with its version and loads in the Terminal 
+ [ > ] == this command can be used to point another [ Folder or File ], which is currently present or newly created 
+ [ requirements.txt ] -this is the file name which we have given, Inside this file we can all the "package names and version" which has been loaded using [ freeze ] command, all those datas such as [package name and version ] will get stored inside this file called [ requirements.txt ]
+   here instead of using [requirements.txt] we can even use any custom names, but this is convention
+
+
+
+
+---------------------------------------------------
+
+
+How to install a Packages and Libraries which are present inside Other Projects "requirements.txt" file into our Current Projects "requirements.txt" file ?
+
+ Command :- [ pip install -r requirements.txt  ]
+  This command will read the contents inside the [ requirements.txt ] file then installs all the package with appropriate verions inside our New virtual_environment_name Folder
+ Command breakdown :-
+ [ pip ] = pip is the command to install python package 
+ [ install ] = install is the command used to install something 
+ [ -r ] = "-r" means we are saying to python that we are going to install a single or Multiple packages which will be presented inside the file --> This file we will be providing as a next arguement
+ [ requirements.txt ] = Here we have to provide the File Name which has Necessary packages( with package name and package version )  --> inside the file there must be list of packages which we can able to install it into our Current virtual_environment Folder 
+   Here we can provide any custom name instead of "requirements.txt"
+   Usually this files will a Text file with (.txt) extentions
+
+
+
+// here we have [ new_venv ] folder which is virtual_environment folder inside this folder we will be installing all the Packages which is inside [ virtual_environment_name ] folder using "requirements.txt" file ?
+ 
+ 1. Go to [ new_venv ] virtual Environment
+ 2.  run this command [ pip install -r file_path_requirements ], in our case it will be ( pip install -r requirements.txt )
+
+
+
+-------------------------------------------
+
+
+Note :-
+
+Do not store the Source Codes inside [ Virtual Environment ] Folder.
+ Use Virtual Environment Folder to store things which are Related to Virtual Environment Tasks, Functions, etc.
+
+Create Virtual Environment only inside the Folder where the Python Files are Present.
+
+
+
+---------------------------------------------
+
+
+How to delete virtual Environment ?
+
+1. Delete is manually by Right clicking on the Folder and Detele 
+
+2. Command [ rm -r virtual_environment_name ]
+  This command can also be used to delete the Virtual Environment, in this case the folder name will be (virtual_environment_name), This command will delete the folder Recursively+
+
+
+
+
+
